@@ -1,0 +1,45 @@
+You can built and save new sysex programs/presets 
+in the Novation Application Components with:
+File -> Save as
+
+------------------------------------------------
+
+Don't forget to map the 
+Launchpad Mini MK3:
+
+Go to 'Dialogs'->'MIDI Device Mapper.'
+
+Create a new mapping.
+
+Select the second Launchpad Mini MK3 
+device, in both 'In Device' and 
+'Out Device.'
+
+Check the ID of the 'midiout1' 
+operator and ensure it is active.
+
+------------------------------------------------
+
+To use the "Pad_colour" 
+operator, follow these steps:
+
+Go to the "Launchpad1" 
+operator's parameters, 
+page Launchpad SysEx.
+
+Select "4" (Programmer Mode)
+in the "Layout" parameter.
+
+------------------------------------------------
+
+Pads are:
+
+midi out - 0 Based Index:
+ch1n11 to n99 - Static colour
+ch2n11 to n99 - Flashing colour
+ch1n11 to n99 - Pulsing colour
+
+midi out - 1 Based Index:
+ch1n12 to n100 - Static colour
+ch2n12 to n100 - Flashing colour
+ch1n12 to n100 - Pulsing colour
