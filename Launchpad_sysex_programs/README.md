@@ -18,4 +18,5 @@ Tox for sending presets/programs, and other SysEx messages on the Novation Launc
 ## Compatibility
 
 TouchDesigner099 Build 2021.16960
+
 Novation Launchpad MK3 (Possibly others, I haven't tested)
