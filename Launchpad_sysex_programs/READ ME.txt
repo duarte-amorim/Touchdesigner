@@ -3,9 +3,9 @@ in the Novation Application Components with:
 File -> Save as
 
 ------------------------------------------------
-
+!IMPORTANT!
 Don't forget to map the 
-Launchpad Mini MK3:
+Launchpad Mini MK3 in Touchdesigner:
 
 Go to 'Dialogs'->'MIDI Device Mapper.'
 
