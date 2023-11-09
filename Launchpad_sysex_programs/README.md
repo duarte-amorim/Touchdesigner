@@ -6,7 +6,7 @@ Tox for sending presets/programs, and other SysEx messages on the Novation Launc
 ![](image1.png)
 
 ### Launchpad1 Operator Parameters Example
-![](image2.jpg)
+![](image2.png)
 
 ## Getting Started
 
