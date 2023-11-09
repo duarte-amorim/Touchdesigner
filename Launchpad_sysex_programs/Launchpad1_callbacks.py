@@ -185,22 +185,26 @@ def onCook(scriptOp):
 
         
         ## -------------- BRIGHTNESS --------------
-            
-            bright_number = int(scriptOp.par.Brightness)
-            bright_number = format(bright_number, '02X')
-            bright_sysex = "F0002029020D08" + bright_number + "F7"
-            # Convert bright_sysex hex to bytes
-            sysex_bytes_bright = bytes.fromhex(bright_sysex)
-
+        
             brightness = int(scriptOp.par.Brightness)	
             if brightness != previous_brightness:
                 if 0 <= brightness <= 127:
+              
+                    bright_number = int(scriptOp.par.Brightness)
+                    bright_number = format(bright_number, '02X')
+                    bright_sysex = "F0002029020D08" + bright_number + "F7"
+                    # Convert bright_sysex hex to bytes
+                    sysex_bytes_bright = bytes.fromhex(bright_sysex)
+
                     bright_number = int(scriptOp.par.Brightness)
                     bright_number = format(bright_number, '02X')
                     bright_sysex = "F0002029020D08" + bright_number + "F7"
                     # Convert bright_sysex hex to bytes
                     sysex_bytes_bright = bytes.fromhex(bright_sysex)
                     n.send(sysex_bytes_bright)
+                else:
+                    print('Brightness out of range. It should be within the range of 0 to 127.')
+
                 previous_brightness = brightness
 
 
@@ -522,7 +526,7 @@ def onPulse(par):
         else: 
             write_text_hex = ''.join(f'{ord(char):02x}' for char in write_text)
         
-        #text_speed
+        #text_colour
         colour_number = int(scriptOp.par.Colour)+1
         text_colour = format(colour_number, '02X') # Convert text to hex
         
@@ -538,11 +542,13 @@ def onPulse(par):
 
 
         #text_play
-        play_message = "F0002029020D07" + text_loop + text_speed + "00" + text_colour + write_text_hex + "F7"
-        play_message_bytes = bytes.fromhex(play_message)
-        
         if par.name == 'Start':
-            n.send(play_message_bytes)
+            if 1 <= colour_number <= 127 and 1 <= speed_number <= 79:
+                play_message = "F0002029020D07" + text_loop + text_speed + "00" + text_colour + write_text_hex + "F7"
+                play_message_bytes = bytes.fromhex(play_message)
+                n.send(play_message_bytes)
+            else:
+                print('Colour or Speed out of range. They should be within the ranges of 0 to 126 for Colour and 0 to 78 for Speed.')
 
         #text_stop
         stop_message = "F0002029020D070040000320F7"
