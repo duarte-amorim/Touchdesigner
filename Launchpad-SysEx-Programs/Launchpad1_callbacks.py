@@ -54,7 +54,7 @@ def onSetupParameters(scriptOp):
     pro = page.appendHeader('Header3', label='Programs')
     pro[0].startSection = True
 
-    page.appendToggle('Autosend', label='Auto Send Programs')
+    page.appendToggle('Autosend', label='Auto Send Program')
     page.appendToggle('Autolayout', label='Auto Select Layout')
     
     # Drums
@@ -311,10 +311,10 @@ def onCook(scriptOp):
                 if (dru_label_number != previous_dru_label_number):
                     if dru_label_number >= 0 and auto_send == True:
                         n.send(dru_file_bytes)
-                        if scriptOp.par.Autolayout == True:
-                            layout_dru = "F0002029020D0004F7"
-                            layout_dru_bytes = bytes.fromhex(layout_dru)
-                            n.send(layout_dru_bytes)
+                    if scriptOp.par.Autolayout == True:
+                        layout_dru = "F0002029020D0004F7"
+                        layout_dru_bytes = bytes.fromhex(layout_dru)
+                        n.send(layout_dru_bytes)
                     previous_dru_label_number = dru_label_number
                                    
 
@@ -357,10 +357,10 @@ def onCook(scriptOp):
                 if (key_label_number != previous_key_label_number):
                     if key_label_number >= 0 and auto_send == True:
                         n.send(key_file_bytes)
-                        if scriptOp.par.Autolayout == True:
-                            layout_key = "F0002029020D0005F7"
-                            layout_key_bytes = bytes.fromhex(layout_key)
-                            n.send(layout_key_bytes)
+                    if scriptOp.par.Autolayout == True:
+                        layout_key = "F0002029020D0005F7"
+                        layout_key_bytes = bytes.fromhex(layout_key)
+                        n.send(layout_key_bytes)
                     previous_key_label_number = key_label_number
 
 
@@ -403,10 +403,10 @@ def onCook(scriptOp):
                 if (use_label_number != previous_use_label_number):
                     if use_label_number >= 0 and auto_send == True:
                         n.send(use_file_bytes)
-                        if scriptOp.par.Autolayout == True:
-                            layout_use = "F0002029020D0006F7"
-                            layout_use_bytes = bytes.fromhex(layout_use)
-                            n.send(layout_use_bytes)
+                    if scriptOp.par.Autolayout == True:
+                        layout_use = "F0002029020D0006F7"
+                        layout_use_bytes = bytes.fromhex(layout_use)
+                        n.send(layout_use_bytes)
                     previous_use_label_number = use_label_number
 
             return (dru_file_bytes, key_file_bytes, use_file_bytes, scriptOp)
