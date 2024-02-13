@@ -127,21 +127,18 @@ def onSetupParameters_Drums(scriptOp):
     page = scriptOp.appendCustomPage('Launchpad SysEx')
     dru_menu = page.appendMenu('Drumsprog', label='Drums Program')
     dru_menu[0].menuLabels = dru_menu_files
-    page.appendFolder ('Drumsfolder', label='Drums SysEx Folder')
     return
 
 def onSetupParameters_Keys(scriptOp):
     page = scriptOp.appendCustomPage('Launchpad SysEx')
     key_menu = page.appendMenu('Keysprog', label='Keys Program')
     key_menu[0].menuLabels = key_menu_files
-    page.appendFolder ('Keysfolder', label='Key SysEx Folder')
     return
 
 def onSetupParameters_User(scriptOp):
     page = scriptOp.appendCustomPage('Launchpad SysEx')
     use_menu = page.appendMenu('Userprog', label='User Program')
     use_menu[0].menuLabels = use_menu_files
-    page.appendFolder ('Userfolder', label='User SysEx Folder')
     return
 
 
